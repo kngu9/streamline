@@ -36,7 +36,6 @@ func (s *SimpleSuite) SetUpTest(c *gc.C) {
 
 	res, err := s.Suite.GetResource("db")
 	c.Assert(err, jc.ErrorIsNil)
-	c.Log(res)
 
 	db, err := sql.Open("postgres", fmt.Sprintf("postgres://test:test@localhost:%s/test?sslmode=disable", res.GetDockerResource().GetPort("5432/tcp")))
 	c.Assert(err, jc.ErrorIsNil)
